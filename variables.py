@@ -2,4 +2,4 @@
 
 favourite_food = "pizza"
 
-print(favourite_food)
+print(f"mi favourite food is {favourite_food}")
