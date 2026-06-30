@@ -1,0 +1,69 @@
+#If statements
+
+#rock, paper, scissors game
+
+import random
+
+options = ("rock", "paper", "scissors")
+
+computer_choice = random.choice(options)
+
+print("Let's play rock paper scissors")
+
+user_options = int(input("enter 1 for rock, 2 for paper, or 3 for scissors: "))
+user_choice = ""
+
+if user_options == 1:
+    print("You chose rock")
+    user_choice = "rock"
+if user_options == 2:
+    print("You chose paper")
+    user_choice = "paper"
+if user_options == 3:
+    print("You chose scissors")
+    user_choice = "scissors"
+
+
+
+if computer_choice == "rock" and user_choice == "rock":
+    print("computer: rock")
+    print("you: rock")
+    print("It's a draw")
+if computer_choice == "paper" and user_choice == "rock":
+     print("computer: paper")
+     print("you: rock")
+     print("you've lost")
+if computer_choice == "scissors" and user_choice == "rock":
+    print("computer: scissors")
+    print("you: rock")
+    print("you've won")
+
+if computer_choice == "rock" and user_choice == "paper":
+    print("computer: rock")
+    print("you: paper")
+    print("you've won")
+if computer_choice == "paper" and user_choice == "paper":
+    print("computer: paper")
+    print("you: paper")
+    print("It's a draw")
+if computer_choice == "scissors" and user_choice == "paper":
+    print("computer: scissors")
+    print("you: paper")
+    print("you've lost")
+
+if computer_choice == "rock" and user_choice == "scissors":
+    print("computer: rock")
+    print("you: scissors")
+    print("you've lost")
+if computer_choice == "paper" and user_choice == "scissors":
+    print("computer: paper")
+    print("you: scissors")
+    print("you've won")
+if computer_choice == "scissors" and user_choice == "scissors":
+    print("computer: scissors")
+    print("you: scissors")
+    print("It's a draw")
+else:
+    print("invalid option")
+
+
