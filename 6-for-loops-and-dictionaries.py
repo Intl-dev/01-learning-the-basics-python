@@ -1,4 +1,4 @@
-#For loops and lists
+#For loops and dictionaries
 
 #suspicious people detector
 
