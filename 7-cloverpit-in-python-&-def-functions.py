@@ -23,23 +23,23 @@ def narrative():
     #time.sleep(2)
     slow_text("'Hello player'")
     #time.sleep(2)
-    slow_text("'I heard you like gambling'")
-    #time.sleep(2.5)
+    slow_text("'I heard you like to gamble'")
+    #ytime.sleep(2.5)
     slow_text("'Do you want me to explain you how to play? (y/n)'")
     choose = input()
     if choose == "y":
         slow_text("'at your left you can see a slot machine'")
         # time.sleep(2.5)
         slow_text("'that is where you are going to get the money'")
-        # time.sleep(2.5)
+        time.sleep(2.5)
         slow_text("'at your right there's a shelf where you can get items to get perks to get more money'")
-        # time.sleep(2.5)
+        time.sleep(2.5)
         slow_text("'do you see that ATM?'")
-        # time.sleep(2.5)
+        time.sleep(2.5)
         slow_text("'well it shows the amount of money you have to pay before a certain time period'")
-        # time.sleep(2.5)
+        time.sleep(2.5)
         slow_text("'if you dont pay it the trapdoor below you will open'")
-        # time.sleep(2.5)
+        time.sleep(2.5)
         slow_text("'I dont think you want that so G O O D  L U C K'")
         print("")
     else:
@@ -49,11 +49,16 @@ def narrative():
 lost = False
 leave_game = False
 
-money = 0
+money = 13
 rounds_left = 3
-spins_left = 77
-debt = 30
+spins_left = 0
+debt = 75
+total_money_deposited = 0
 money_deposited = 0
+interest = 7
+spins_price_7 = 7
+spins_price_3 = 3
+cannot_buy_spins = False
 
 lemon_value = 2
 cherry_value = 2
@@ -339,6 +344,93 @@ def LETS_GO_GAMBLING():
             total_money_won += (seven_value * 3) * horizontal_combo_value
             print(f"+ {(seven_value * 3) * horizontal_combo_value}")
 
+    # DIAGONAL COMBOS (3 IN A ROW)
+
+    # --- DIAGONAL DOWNWARDS ---
+
+
+    if row_1[0] == row_2[1] and row_2[1] == row_3[2]:
+        print("Diagonal down line of 3 (Left)")
+        simbol = row_1[0]
+
+
+    elif row_1[1] == row_2[2] and row_2[2] == row_3[3]:
+        print("Diagonal down line of 3 (Center)")
+        simbol = row_1[1]
+
+
+    elif row_1[2] == row_2[3] and row_2[3] == row_3[4]:
+        print("Diagonal down line of 3 (Right)")
+        simbol = row_1[2]
+    else:
+        simbol = None
+
+
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += (lemon_value * 3) * diagonal_combo_value
+            print(f"+ {(lemon_value * 3) * diagonal_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += (cherry_value * 3) * diagonal_combo_value
+            print(f"+ {(cherry_value * 3) * diagonal_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += (clover_value * 3) * diagonal_combo_value
+            print(f"+ {(clover_value * 3) * diagonal_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += (bell_value * 3) * diagonal_combo_value
+            print(f"+ {(bell_value * 3) * diagonal_combo_value}")
+        elif simbol == "💎":
+            total_money_won += (diamond_value * 3) * diagonal_combo_value
+            print(f"+ {(diamond_value * 3) * diagonal_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += (moai_value * 3) * diagonal_combo_value
+            print(f"+ {(moai_value * 3) * diagonal_combo_value}")
+        elif simbol == "7":
+            total_money_won += (seven_value * 3) * diagonal_combo_value
+            print(f"+ {(seven_value * 3) * diagonal_combo_value}")
+
+    # --- DIAGONAL UPWARDS ---
+
+
+    if row_3[0] == row_2[1] and row_2[1] == row_1[2]:
+        print("Diagonal up line of 3 (Left)")
+        simbol = row_3[0]
+
+
+    elif row_3[1] == row_2[2] and row_2[2] == row_1[3]:
+        print("Diagonal up line of 3 (Center)")
+        simbol = row_3[1]
+
+
+    elif row_3[2] == row_2[3] and row_2[3] == row_1[4]:
+        print("Diagonal up line of 3 (Right)")
+        simbol = row_3[2]
+    else:
+        simbol = None
+
+
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += (lemon_value * 3) * diagonal_combo_value
+            print(f"+ {(lemon_value * 3) * diagonal_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += (cherry_value * 3) * diagonal_combo_value
+            print(f"+ {(cherry_value * 3) * diagonal_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += (clover_value * 3) * diagonal_combo_value
+            print(f"+ {(clover_value * 3) * diagonal_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += (bell_value * 3) * diagonal_combo_value
+            print(f"+ {(bell_value * 3) * diagonal_combo_value}")
+        elif simbol == "💎":
+            total_money_won += (diamond_value * 3) * diagonal_combo_value
+            print(f"+ {(diamond_value * 3) * diagonal_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += (moai_value * 3) * diagonal_combo_value
+            print(f"+ {(moai_value * 3) * diagonal_combo_value}")
+        elif simbol == "7":
+            total_money_won += (seven_value * 3) * diagonal_combo_value
+            print(f"+ {(seven_value * 3) * diagonal_combo_value}")
     print(f"Total: ${total_money_won}")
     global money
     money = money + total_money_won
@@ -356,13 +448,30 @@ while lost == False and leave_game == False:
 
     option = int(input("Enter your option: "))
 
+
     if option == 1:
-        if spins_left > 0:
-            spins_left -= 1
-            LETS_GO_GAMBLING()
-            print("")
-        else :
-            slow_text("No spins left")
+
+        spins_bought = input(f"How many spins do you want to buy? option 1. 7 spins ${spins_price_7}, option 2. 3 spins ${spins_price_3}. (enter 1 for option 1 and 2 for option 2): ")
+        if spins_bought == "1":
+            spins_left = spins_left + 7
+            money = money - spins_price_7
+
+        else:
+            spins_left = spins_left + 3
+            money = money - spins_price_3
+
+        while spins_left > 0:
+            print(f"Spins left: {spins_left}")
+            spin = input("1 to spin de slot machine (you cant cancel spinning): ")
+            if spin == "1":
+                LETS_GO_GAMBLING()
+                spins_left = spins_left - 1
+            else:
+                LETS_GO_GAMBLING()
+                spins_left = spins_left - 1
+        rounds_left = rounds_left + 1
+
+
 
 
     if option == 2:
@@ -373,13 +482,17 @@ while lost == False and leave_game == False:
         print("")
         print(f"💀{rounds_left} Rounds left💀")
         print(f"  Debt: ${debt}")
-        print(f"  Deposited: ${money_deposited}")
+        print(f"  Interest: %{interest}")
+        print(f"  Deposited: ${total_money_deposited}")
         deposit_choice = (input("Do you want to deposit money? (y/n): "))
         if deposit_choice == "y":
-                money_deposited += int(input("Enter amount to deposit: "))
-                if money_deposited < money:
+                money_deposited = int(input("Enter amount to deposit: "))
+
+                if money_deposited <= money:
+                    total_money_deposited = total_money_deposited + money_deposited
                     money = money - money_deposited
                     debt = debt - money_deposited
+
                 else:
                     print("You cannot deposit money")
 
