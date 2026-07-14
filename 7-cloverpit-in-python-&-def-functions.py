@@ -81,7 +81,14 @@ eye_combo_value = 8
 full_combo_value = 10
 
 simbols = ["🍋", "🍒", "🍀", "🔔", "💎", "🗿", "7"]
-
+lemon_chance = 20
+cherry_chance = 20
+clover_chance = 15
+bell_chance = 15
+diamond_chance = 11
+moai_chance = 11
+seven_chance = 8
+chances = [lemon_chance, cherry_chance, clover_chance, bell_chance, diamond_chance, moai_chance, seven_chance]
 
 def LETS_GO_GAMBLING():
 
@@ -90,9 +97,9 @@ def LETS_GO_GAMBLING():
     row_2 = []
     row_3 = []
     for i in range(5):
-        row_1.append(random.choice(simbols))
-        row_2.append(random.choice(simbols))
-        row_3.append(random.choice(simbols))
+        row_1.append(random.choices(simbols, weights=chances, k=1)[0]) #I got the "random.choices(simbols, weights=chances, k=1)[0]" from the internet, I didn't know how to give different chances to each simbol
+        row_2.append(random.choices(simbols, weights=chances, k=1)[0]) #But what it does is take a simbol from the simbols list and give it a chance to be chosen from the chances list
+        row_3.append(random.choices(simbols, weights=chances, k=1)[0])
 
     print("")
     print(f"| {row_1[0]} | | {row_1[1]} | | {row_1[2]} | | {row_1[3]} | | {row_1[4]} |")
@@ -450,27 +457,40 @@ while lost == False and leave_game == False:
 
 
     if option == 1:
+        if rounds_left > 0:
+            spins_bought = input(f"How many spins do you want to buy? option 1. 7 spins ${spins_price_7}, option 2. 3 spins ${spins_price_3}. (enter 1 for option 1 and 2 for option 2): ")
+            if spins_bought == "1":
+                spins_left = spins_left + 7
+                money = money - spins_price_7
 
-        spins_bought = input(f"How many spins do you want to buy? option 1. 7 spins ${spins_price_7}, option 2. 3 spins ${spins_price_3}. (enter 1 for option 1 and 2 for option 2): ")
-        if spins_bought == "1":
-            spins_left = spins_left + 7
-            money = money - spins_price_7
-
-        else:
-            spins_left = spins_left + 3
-            money = money - spins_price_3
-
-        while spins_left > 0:
-            print(f"Spins left: {spins_left}")
-            spin = input("1 to spin de slot machine (you cant cancel spinning): ")
-            if spin == "1":
-                LETS_GO_GAMBLING()
-                spins_left = spins_left - 1
             else:
-                LETS_GO_GAMBLING()
-                spins_left = spins_left - 1
-        rounds_left = rounds_left + 1
+                spins_left = spins_left + 3
+                money = money - spins_price_3
 
+            while spins_left > 0:
+                print(f"Spins left: {spins_left}")
+                spin = input("1 to spin de slot machine (you cant cancel spinning): ")
+                if spin == "1":
+                    LETS_GO_GAMBLING()
+                    spins_left = spins_left - 1
+                else:
+                    LETS_GO_GAMBLING()
+                    spins_left = spins_left - 1
+            rounds_left = rounds_left - 1
+        else:
+            if money >= debt:
+                print("You are in the deadline, pay the debt")
+            else:
+                slow_text("You dont have enough money to pay the debt and you are in the deadline")
+                time.sleep(2)
+                slow_text("suddenly you hear a voice...")
+                time.sleep(2)
+                slow_text("'Oh oh, looks like someone is broke, well good bye'")
+                time.sleep(2)
+                slow_text("The trapdoor below you opens...")
+                time.sleep(3)
+                print("You've Lost")
+                lost = True
 
 
 
