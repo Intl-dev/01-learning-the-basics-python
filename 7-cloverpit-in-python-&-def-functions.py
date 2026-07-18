@@ -50,16 +50,18 @@ lost = False
 leave_game = False
 
 money = 13
+tickets = 1
 rounds_left = 3
 spins_left = 0
 deadline = 1
 debt = 75
-total_money_deposited = 0
-money_deposited = 30
+total_money_deposited = 30
+money_deposited = 0
 interest = 7
 spins_price_7 = 7
 spins_price_3 = 3
 cannot_buy_spins = False
+rounds_counter = 0
 
 lemon_value = 2 * 3 #these are buffed because I haven't made the items yet
 cherry_value = 2 * 3
@@ -68,6 +70,54 @@ bell_value = 3 * 3
 diamond_value = 5 * 3
 moai_value = 5 * 3
 seven_value = 7 * 3
+
+ #items
+items = {
+    "lemon_photo": {
+        "name": "lemon_photo",
+        "price": 2,
+        "description": "increases the chances of lemons",
+        "active": False
+    },
+    "cherry_photo": {
+        "name": "cherry_photo",
+        "price": 2,
+        "description": "increases the chances of cherrys",
+        "active": False
+    },
+    "clover_photo": {
+        "name": "clover_photo",
+        "price": 3,
+        "description": "increases the chances of clovers",
+        "active": False
+    },
+    "bell_photo": {
+        "name": "bell_photo",
+        "price": 3,
+        "description": "increases the chances of bells",
+        "active": False
+    },
+    "diamond_photo": {
+        "name": "diamond_photo",
+        "price": 4,
+        "description": "increases the chances of diamonds",
+        "active": False
+    },
+    "moai_photo": {
+        "name": "moai_photo",
+        "price": 4,
+        "description": "increases the chances of moais",
+        "active": False
+    },
+    "seven_photo": {
+        "name": "seven_photo",
+        "price": 5,
+        "description": "increases the chances of sevens",
+        "active": False
+    },
+
+}
+stock = random.sample(list(items.keys()), k=3)
 
 horizontal_combo_value = 1
 vertical_combo_value = 1
@@ -90,6 +140,15 @@ diamond_chance = 11.9
 moai_chance = 11.9
 seven_chance = 7.5
 chances = [lemon_chance, cherry_chance, clover_chance, bell_chance, diamond_chance, moai_chance, seven_chance]
+
+def show_chances(chances_available):
+    weights_addition = sum(chances_available)
+
+    for i in range(len(simbols)):
+        icon = simbols[i]
+        simbol_weight = chances[i]
+        real_percentage = (simbol_weight / weights_addition) * 100
+        print(f"{icon} : {real_percentage:.1f}%")
 
 def LETS_GO_GAMBLING():
 
@@ -435,6 +494,7 @@ narrative()
 
 while lost == False and leave_game == False:
     print(f"Money: ${money}")
+    print(f"Clover tickets: {tickets}")
     print(f"Spins left: {spins_left}")
     print("Options:")
     print("1_Use slot machine")
@@ -445,14 +505,33 @@ while lost == False and leave_game == False:
     option = int(input("Enter your option: "))
     if option == 1:
         if rounds_left > 0:
-            spins_bought = input(f"How many spins do you want to buy? option 1. 7 spins ${spins_price_7}, option 2. 3 spins ${spins_price_3}. (enter 1 for option 1 and 2 for option 2): ")
+            chances = [lemon_chance, cherry_chance, clover_chance, bell_chance, diamond_chance, moai_chance, seven_chance]
+            if items["lemon_photo"]["active"] == True:
+                chances[0] = chances[0] * 2
+            if items["cherry_photo"]["active"] == True:
+                chances[1] = chances[1] * 2
+            if items["clover_photo"]["active"] == True:
+                chances[2] = chances[2] * 2
+            if items["bell_photo"]["active"] == True:
+                chances[3] = chances[3] * 2
+            if items["diamond_photo"]["active"] == True:
+                chances[4] = chances[4] * 2
+            if items["moai_photo"]["active"] == True:
+                chances[5] = chances[5] * 2
+            if items["seven_photo"]["active"] == True:
+                chances[6] = chances[6] * 2
+
+            show_chances(chances)
+            spins_bought = input(f"How many spins do you want to buy? option 1. 7 spins ${spins_price_7} and + 1 ticket, option 2. 3 spins ${spins_price_3} and + 2 tickets. (enter 1 for option 1 and 2 for option 2): ")
             if spins_bought == "1":
                 spins_left = spins_left + 7
+                tickets = tickets + 1
                 money = money - spins_price_7
 
             else:
                 spins_left = spins_left + 3
                 money = money - spins_price_3
+                tickets = tickets + 2
 
             while spins_left > 0:
                 print(f"Spins left: {spins_left}")
@@ -463,6 +542,7 @@ while lost == False and leave_game == False:
                 else:
                     LETS_GO_GAMBLING()
                     spins_left = spins_left - 1
+            rounds_counter = rounds_counter + 1
             rounds_left = rounds_left - 1
         else:
             if money >= debt:
@@ -480,8 +560,66 @@ while lost == False and leave_game == False:
                 lost = True
 
     if option == 2:
-        print("Not completed yet")
         print("")
+        print(" Items Shop ")
+        print(stock[0])
+        print(stock[1])
+        print(stock[2])
+        check_option = input(f"Which item would you like to check? 1 for {stock[0]}, 2 for {stock[1]}, 3 for {stock[2]}: ")
+        if check_option == "1":
+            print(items[stock[0]]["name"])
+            print(items[stock[0]]["description"])
+            print(items[stock[0]]["price"])
+            buy_item_option = input(f"Want to buy {items[stock[0]]['name']}? (y/n): ")
+            if buy_item_option == "y":
+                if items[stock[0]]["active"] == False:
+                    if tickets >= items[stock[0]]['price']:
+                        items[stock[0]]["active"] = True
+                        tickets = tickets - items[stock[0]]["price"]
+                        print(f"you have purchased {items[stock[0]]['name']} for {items[stock[0]]['price']} tickets")
+                    else:
+                        print("Not enough tickets")
+                else:
+                    print("You already have this item")
+            else:
+                print("Canceled purchase")
+        elif check_option == "2":
+            print(items[stock[1]]["name"])
+            print(items[stock[1]]["description"])
+            print(items[stock[1]]["price"])
+            buy_item_option = input(f"Want to buy {items[stock[1]]['name']}? (y/n): ")
+            if buy_item_option == "y":
+                if items[stock[1]]["active"] == False:
+                    if tickets >= items[stock[1]]['price']:
+                        items[stock[1]]["active"] = True
+                        tickets = tickets - items[stock[1]]["price"]
+                        print(f"you have purchased {items[stock[1]]['name']} for {items[stock[1]]['price']} tickets")
+                    else:
+                        print("Not enough tickets")
+                else:
+                    print("You already have this item")
+            else:
+                print("Canceled purchase")
+        elif check_option == "3":
+            print(items[stock[2]]["name"])
+            print(items[stock[2]]["description"])
+            print(items[stock[2]]["price"])
+            buy_item_option = input(f"Want to buy {items[stock[2]]['name']}? (y/n): ")
+            if buy_item_option == "y":
+                if items[stock[2]]["active"] == False:
+                    if tickets >= items[stock[2]]['price']:
+                        items[stock[2]]["active"] = True
+                        tickets = tickets - items[stock[2]]["price"]
+                        print(f"you have purchased {items[stock[2]]['name']} for {items[stock[2]]['price']} tickets")
+                    else:
+                        print("Not enough tickets")
+                else:
+                    print("You already have this item")
+            else:
+                print("Canceled purchase")
+        else:
+            print("Invalid option")
+    print("")
 
     if option == 3:
         print("")
@@ -499,30 +637,41 @@ while lost == False and leave_game == False:
                         debt = debt - money_deposited
                         if debt == 0:
                             if deadline == 1:
+                                print("Items shop restocked")
                                 print("Congratulations, how about another deadline?")
                                 debt = 200
                                 deadline = deadline + 1
                                 rounds_left = 3
+                                stock = random.sample(list(items.keys()), k=3)
                             elif deadline == 2:
+                                print("Items shop restocked")
                                 print("Congratulations, how about another deadline?")
                                 debt = 666
                                 deadline = deadline + 1
                                 rounds_left = 3
+                                stock = random.sample(list(items.keys()), k=3)
                             elif deadline == 3:
+                                print("Items shop restocked")
                                 print("Congratulations, how about another deadline?")
                                 debt = 1250
                                 deadline = deadline + 1
                                 rounds_left = 3
+                                stock = random.sample(list(items.keys()), k=3)
                             elif deadline == 4:
+                                print("Items shop restocked")
                                 print("Congratulations, how about another deadline?")
                                 debt = 33333
                                 deadline = deadline + 1
                                 rounds_left = 3
+                                stock = random.sample(list(items.keys()), k=3)
                             else:
                                 scaling_debt = 33333 * (3 ** (deadline - 4))
+                                print("Items shop restocked")
                                 print("Congratulations, how about another deadline?")
                                 deadline = deadline + 1
+                                rounds_left = 3
                                 debt =  scaling_debt
+                                stock = random.sample(list(items.keys()), k=3)
                     else:
                         money_deposited = debt
                         debt = debt - money_deposited
@@ -557,7 +706,12 @@ while lost == False and leave_game == False:
 
                 else:
                     print("You cannot deposit money")
-
+        elif atm_choice == "2":
+            total_interests =  (total_money_deposited * (interest * 0.01)) * rounds_counter
+            print(f"Total interests claimed:  ${round(total_interests)}")
+            money = money + round(total_interests)
+            total_interests = 0
+            rounds_counter = 0
         else:
             print("")
 
