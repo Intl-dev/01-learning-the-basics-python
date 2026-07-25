@@ -114,8 +114,7 @@ items = {
         "price": 5,
         "description": "increases the chances of sevens",
         "active": False
-    },
-
+    }
 }
 stock = random.sample(list(items.keys()), k=3)
 
@@ -129,7 +128,7 @@ zag_combo_value = 4
 up_piramid_combo_value = 7
 down_piramid_combo_value = 7
 eye_combo_value = 8
-full_combo_value = 10
+jackpot_combo_value = 10
 
 simbols = ["🍋", "🍒", "🍀", "🔔", "💎", "🗿", "7"]
 lemon_chance = 19.4
@@ -300,6 +299,203 @@ def LETS_GO_GAMBLING():
         elif simbol == "7":
             total_money_won += seven_value * horizontal_combo_value
             print(f"+ {seven_value * horizontal_combo_value}")
+
+
+    # HORIZONTAL COMBOS (5 IN A ROW)
+
+
+    # --- ROW 1 ---
+    if row_1[0] == row_1[1] == row_1[2] == row_1[3] == row_1[4]:
+        print("Horizontal line of 5 in row 1!")
+        simbol = row_1[0]
+    else:
+        simbol = None
+
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * horizontal_xl_combo_value
+            print(f"+ {lemon_value * horizontal_xl_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * horizontal_xl_combo_value
+            print(f"+ {cherry_value * horizontal_xl_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * horizontal_xl_combo_value
+            print(f"+ {clover_value * horizontal_xl_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * horizontal_xl_combo_value
+            print(f"+ {bell_value * horizontal_xl_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * horizontal_xl_combo_value
+            print(f"+ {diamond_value * horizontal_xl_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * horizontal_xl_combo_value
+            print(f"+ {moai_value * horizontal_xl_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * horizontal_xl_combo_value
+            print(f"+ {seven_value * horizontal_xl_combo_value}")
+
+    # --- ROW 2 ---
+    if row_2[0] == row_2[1] == row_2[2] == row_2[3] == row_2[4]:
+        print("Horizontal line of 5 in row 2!")
+        simbol = row_2[0]
+    else:
+        simbol = None
+
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * horizontal_xl_combo_value
+            print(f"+ {lemon_value * horizontal_xl_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * horizontal_xl_combo_value
+            print(f"+ {cherry_value * horizontal_xl_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * horizontal_xl_combo_value
+            print(f"+ {clover_value * horizontal_xl_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * horizontal_xl_combo_value
+            print(f"+ {bell_value * horizontal_xl_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * horizontal_xl_combo_value
+            print(f"+ {diamond_value * horizontal_xl_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * horizontal_xl_combo_value
+            print(f"+ {moai_value * horizontal_xl_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * horizontal_xl_combo_value
+            print(f"+ {seven_value * horizontal_xl_combo_value}")
+
+    # --- ROW 3 ---
+    if row_3[0] == row_3[1] == row_3[2] == row_3[3] == row_3[4]:
+        print("Horizontal line of 5 in row 3!")
+        simbol = row_3[0]
+    else:
+        simbol = None
+
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * horizontal_xl_combo_value
+            print(f"+ {lemon_value * horizontal_xl_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * horizontal_xl_combo_value
+            print(f"+ {cherry_value * horizontal_xl_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * horizontal_xl_combo_value
+            print(f"+ {clover_value * horizontal_xl_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * horizontal_xl_combo_value
+            print(f"+ {bell_value * horizontal_xl_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * horizontal_xl_combo_value
+            print(f"+ {diamond_value * horizontal_xl_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * horizontal_xl_combo_value
+            print(f"+ {moai_value * horizontal_xl_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * horizontal_xl_combo_value
+            print(f"+ {seven_value * horizontal_xl_combo_value}")
+
+
+    # HORIZONTAL COMBOS (4 IN A ROW)
+
+
+    # --- ROW 1 ---
+    if row_1[0] == row_1[1] == row_1[2] == row_1[3]:
+        print("Horizontal line of 4 in row 1 (Left)")
+        simbol = row_1[0]
+    elif row_1[1] == row_1[2] == row_1[3] == row_1[4]:
+        print("Horizontal line of 4 in row 1 (Right)")
+        simbol = row_1[1]
+    else:
+        simbol = None
+
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * horizontal_l_combo_value
+            print(f"+ {lemon_value * horizontal_l_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * horizontal_l_combo_value
+            print(f"+ {cherry_value * horizontal_l_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * horizontal_l_combo_value
+            print(f"+ {clover_value * horizontal_l_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * horizontal_l_combo_value
+            print(f"+ {bell_value * horizontal_l_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * horizontal_l_combo_value
+            print(f"+ {diamond_value * horizontal_l_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * horizontal_l_combo_value
+            print(f"+ {moai_value * horizontal_l_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * horizontal_l_combo_value
+            print(f"+ {seven_value * horizontal_l_combo_value}")
+
+    # --- ROW 2 ---
+    if row_2[0] == row_2[1] == row_2[2] == row_2[3]:
+        print("Horizontal line of 4 in row 2 (Left)")
+        simbol = row_2[0]
+    elif row_2[1] == row_2[2] == row_2[3] == row_2[4]:
+        print("Horizontal line of 4 in row 2 (Right)")
+        simbol = row_2[1]
+    else:
+        simbol = None
+
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * horizontal_l_combo_value
+            print(f"+ {lemon_value * horizontal_l_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * horizontal_l_combo_value
+            print(f"+ {cherry_value * horizontal_l_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * horizontal_l_combo_value
+            print(f"+ {clover_value * horizontal_l_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * horizontal_l_combo_value
+            print(f"+ {bell_value * horizontal_l_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * horizontal_l_combo_value
+            print(f"+ {diamond_value * horizontal_l_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * horizontal_l_combo_value
+            print(f"+ {moai_value * horizontal_l_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * horizontal_l_combo_value
+            print(f"+ {seven_value * horizontal_l_combo_value}")
+
+    # --- ROW 3 ---
+    if row_3[0] == row_3[1] == row_3[2] == row_3[3]:
+        print("Horizontal line of 4 in row 3 (Left)")
+        simbol = row_3[0]
+    elif row_3[1] == row_3[2] == row_3[3] == row_3[4]:
+        print("Horizontal line of 4 in row 3 (Right)")
+        simbol = row_3[1]
+    else:
+        simbol = None
+
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * horizontal_l_combo_value
+            print(f"+ {lemon_value * horizontal_l_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * horizontal_l_combo_value
+            print(f"+ {cherry_value * horizontal_l_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * horizontal_l_combo_value
+            print(f"+ {clover_value * horizontal_l_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * horizontal_l_combo_value
+            print(f"+ {bell_value * horizontal_l_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * horizontal_l_combo_value
+            print(f"+ {diamond_value * horizontal_l_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * horizontal_l_combo_value
+            print(f"+ {moai_value * horizontal_l_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * horizontal_l_combo_value
+            print(f"+ {seven_value * horizontal_l_combo_value}")
 
     # HORIZONTAL COMBOS (3 IN A ROW)
 
@@ -485,6 +681,210 @@ def LETS_GO_GAMBLING():
             total_money_won += seven_value * diagonal_combo_value
             print(f"+ {seven_value * diagonal_combo_value}")
 
+    # [ ][ ][X][ ][ ]  row_1[2]
+    # [ ][X][ ][X][ ]  row_2[1], row_2[3]
+    # [X][ ][ ][ ][X]  row_3[0], row_3[4]
+
+    if row_3[0] == row_2[1] == row_1[2] == row_2[3] == row_3[4]:
+        simbol = row_3[0]
+        print("zig")
+    else:
+        simbol = None
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * zig_combo_value
+            print(f"+ {lemon_value * zig_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * zag_combo_value
+            print(f"+ {cherry_value * zig_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * zag_combo_value
+            print(f"+ {clover_value * zig_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * zag_combo_value
+            print(f"+ {bell_value * zig_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * zag_combo_value
+            print(f"+ {diamond_value * zig_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * zag_combo_value
+            print(f"+ {moai_value * zig_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * zag_combo_value
+            print(f"+ {seven_value * zig_combo_value}")
+
+    # [X][ ][ ][ ][X]  row_1[0], row_1[4]
+    # [ ][X][ ][X][ ]  row_2[1], row_2[3]
+    # [ ][ ][X][ ][ ]  row_3[2]
+
+    if row_1[0] == row_2[1] == row_3[2] == row_2[3] == row_1[4]:
+        print("zag")
+        simbol = row_1[0]
+    else:
+        simbol = None
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * zag_combo_value
+            print(f"+ {lemon_value * zag_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * zag_combo_value
+            print(f"+ {cherry_value * zag_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * zag_combo_value
+            print(f"+ {clover_value * zag_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * zag_combo_value
+            print(f"+ {bell_value * zag_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * zag_combo_value
+            print(f"+ {diamond_value * zag_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * zag_combo_value
+            print(f"+ {moai_value * zag_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * diagonal_combo_value
+            print(f"+ {seven_value * zag_combo_value}")
+
+    # [ ][ ][X][ ][ ]  row_1[2]
+    # [ ][X][ ][X][ ]  row_2[1], row_2[2], row_2[3]
+    # [X][X][X][X][X]  row_3[0], row_3[1], row_3[2], row_3[3], row_3[4]
+
+    if (row_1[2] ==
+            row_2[1] == row_2[3] ==
+            row_3[0] == row_3[1] == row_3[2] == row_3[3] == row_3[4]):
+        print("up piramid")
+        simbol = row_1[2]
+    else:
+        simbol = None
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * up_piramid_combo_value
+            print(f"+ {lemon_value * up_piramid_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * up_piramid_combo_value
+            print(f"+ {cherry_value * up_piramid_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * up_piramid_combo_value
+            print(f"+ {clover_value * up_piramid_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * up_piramid_combo_value
+            print(f"+ {bell_value * up_piramid_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * up_piramid_combo_value
+            print(f"+ {diamond_value * up_piramid_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * up_piramid_combo_value
+            print(f"+ {moai_value * up_piramid_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * up_piramid_combo_value
+            print(f"+ {seven_value * up_piramid_combo_value}")
+
+    # [X][X][X][X][X]  row_1[0], row_1[1], row_1[2], row_1[3], row_1[4]
+    # [ ][X][ ][X][ ]  row_2[1], row_2[3]
+    # [ ][ ][X][ ][ ]  row_3[2]
+
+    if (row_1[0] == row_1[1] == row_1[2] == row_1[3] == row_1[4] ==
+            row_2[1] == row_2[3] ==
+            row_3[2]):
+
+        print("down piramid")
+        simbol = row_1[0]
+    else:
+        simbol = None
+
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * down_piramid_combo_value
+            print(f"+ {lemon_value * down_piramid_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * down_piramid_combo_value
+            print(f"+ {cherry_value * down_piramid_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * down_piramid_combo_value
+            print(f"+ {clover_value * down_piramid_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * down_piramid_combo_value
+            print(f"+ {bell_value * down_piramid_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * down_piramid_combo_value
+            print(f"+ {diamond_value * down_piramid_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * down_piramid_combo_value
+            print(f"+ {moai_value * down_piramid_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * down_piramid_combo_value
+            print(f"+ {seven_value * down_piramid_combo_value}")
+
+    # [ ][X][X][X][ ]   row_1[1], row_1[2], row_1[3]
+    # [X][ ][ ][ ][X]   row_2[0], row_2[4]
+    # [ ][X][X][X][ ]   row_3[1], row_3[2], row_3[3]
+
+    if (row_1[1] == row_1[2] == row_1[3] ==
+            row_2[0] == row_2[4] ==
+            row_3[1] == row_3[2] == row_3[3]):
+
+        print("eye")
+        simbol = row_2[2]
+    else:
+        simbol = None
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * eye_combo_value
+            print(f"+ {lemon_value * eye_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * eye_combo_value
+            print(f"+ {cherry_value * eye_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * eye_combo_value
+            print(f"+ {clover_value * eye_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * eye_combo_value
+            print(f"+ {bell_value * eye_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * eye_combo_value
+            print(f"+ {diamond_value * eye_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * eye_combo_value
+            print(f"+ {moai_value * eye_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * eye_combo_value
+            print(f"+ {seven_value * eye_combo_value}")
+
+    # [X][X][X][X][X]
+    # [X][X][X][X][X]
+    # [X][X][X][X][X]
+
+    if (row_1[0] == row_1[1] == row_1[2] == row_1[3] == row_1[4] ==
+            row_2[0] == row_2[1] == row_2[2] == row_2[3] == row_2[4] ==
+            row_3[0] == row_3[1] == row_3[2] == row_3[3] == row_3[4]):
+
+        print("JACKPOT!")
+        simbol = row_1[0]
+    else:
+        simbol = None
+    if simbol:
+        if simbol == "🍋":
+            total_money_won += lemon_value * jackpot_combo_value
+            print(f"+ {lemon_value * jackpot_combo_value}")
+        elif simbol == "🍒":
+            total_money_won += cherry_value * jackpot_combo_value
+            print(f"+ {cherry_value * jackpot_combo_value}")
+        elif simbol == "🍀":
+            total_money_won += clover_value * jackpot_combo_value
+            print(f"+ {clover_value * jackpot_combo_value}")
+        elif simbol == "🔔":
+            total_money_won += bell_value * jackpot_combo_value
+            print(f"+ {bell_value * jackpot_combo_value}")
+        elif simbol == "💎":
+            total_money_won += diamond_value * jackpot_combo_value
+            print(f"+ {diamond_value * jackpot_combo_value}")
+        elif simbol == "🗿":
+            total_money_won += moai_value * jackpot_combo_value
+            print(f"+ {moai_value * jackpot_combo_value}")
+        elif simbol == "7":
+            total_money_won += seven_value * jackpot_combo_value
+            print(f"+ {seven_value * jackpot_combo_value}")
+
     print(f"Total: ${total_money_won}")
     global money
     money = money + total_money_won
@@ -500,7 +900,8 @@ while lost == False and leave_game == False:
     print("1_Use slot machine")
     print("2_Check Shelf")
     print("3_Use ATM")
-    print("4_leave the game")
+    print("4_Use telephone")
+    print("5_leave the game")
 
     option = int(input("Enter your option: "))
     if option == 1:
@@ -718,6 +1119,11 @@ while lost == False and leave_game == False:
     print("")
 
     if option == 4:
+        print("Not completed")
+        print("")
+            
+
+    if option == 5:
         sure = input("Are you sure you want to leave the game? (y/n): ")
         if sure == "y":
             leave_game = True
